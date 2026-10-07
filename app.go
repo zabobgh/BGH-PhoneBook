@@ -416,10 +416,86 @@ func (a *App) RelocateEntries(ids []int64, targetBuilding, targetFloor string) (
 	return updatedCount, nil
 }
 
+func (a *App) RenameBuilding(oldBuilding, newBuilding string) (int64, error) {
+	if a.db == nil {
+		return 0, errors.New("database not initialized")
+	}
+	oldBuilding = strings.TrimSpace(oldBuilding)
+	newBuilding = strings.TrimSpace(newBuilding)
+	if oldBuilding == "" || newBuilding == "" {
+		return 0, errors.New("invalid building names")
+	}
+	res, err := a.db.Exec("UPDATE entries SET building = ? WHERE building = ?", newBuilding, oldBuilding)
+	if err != nil {
+		return 0, err
+	}
+	return res.RowsAffected()
+}
+
+func (a *App) DeleteBuilding(building string) (int64, error) {
+	if a.db == nil {
+		return 0, errors.New("database not initialized")
+	}
+	building = strings.TrimSpace(building)
+	if building == "" {
+		return 0, errors.New("invalid building name")
+	}
+	var count int
+	if err := a.db.QueryRow("SELECT COUNT(*) FROM entries WHERE building = ?", building).Scan(&count); err != nil {
+		return 0, err
+	}
+	if count > 0 {
+		return 0, fmt.Errorf("cannot delete building with %d entries", count)
+	}
+	return 0, nil
+}
+
 // ==================== HTTP Server & AssetServer Integration ====================
 
 func (a *App) HttpHandler() http.Handler {
 	mux := http.NewServeMux()
+
+	mux.HandleFunc("/api/buildings/rename", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			writeError(w, 405, "method not allowed")
+			return
+		}
+		var payload struct {
+			OldBuilding string `json:"old_building"`
+			NewBuilding string `json:"new_building"`
+		}
+		if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
+			writeError(w, 400, err.Error())
+			return
+		}
+		count, err := a.RenameBuilding(payload.OldBuilding, payload.NewBuilding)
+		if err != nil {
+			writeError(w, 500, err.Error())
+			return
+		}
+		writeJSON(w, 200, map[string]any{"success": true, "updatedEntries": count, "updatedLocations": 0})
+	})
+
+	mux.HandleFunc("/api/buildings/delete", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			writeError(w, 405, "method not allowed")
+			return
+		}
+		var payload struct {
+			Building string `json:"building"`
+		}
+		if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
+			writeError(w, 400, err.Error())
+			return
+		}
+		_, err := a.DeleteBuilding(payload.Building)
+		if err != nil {
+			writeError(w, 400, err.Error())
+			return
+		}
+		writeJSON(w, 200, map[string]any{"success": true})
+	})
+
 	mux.HandleFunc("/api/entries", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:

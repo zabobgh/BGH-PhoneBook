@@ -132,10 +132,17 @@ async function loadConfiguredLocations() {
   }
 }
 
-async function handleLocationsUpdated() {
+async function handleLocationsUpdated(oldBuilding?: string, newBuilding?: string) {
+  if (oldBuilding && newBuilding && activeBuilding.value === oldBuilding) {
+    activeBuilding.value = newBuilding
+  } else if (oldBuilding && !newBuilding && activeBuilding.value === oldBuilding) {
+    activeBuilding.value = ''
+  }
   await loadConfiguredLocations()
   await refreshMeta()
-  await load()
+  if (activeBuilding.value || hasRequestedAll.value || q.value) {
+    await load()
+  }
 }
 
 // Computed
@@ -1296,6 +1303,7 @@ onUnmounted(() => {
       :open="locationSettingsModalOpen"
       :buildings="buildings"
       :entries="entries"
+      :meta="meta"
       @close="locationSettingsModalOpen = false"
       @updated="handleLocationsUpdated"
     />

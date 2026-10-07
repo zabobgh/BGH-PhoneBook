@@ -209,5 +209,67 @@ export const api = {
       }
     } catch {}
   },
+
+  renameBuilding: async (oldName: string, newName: string): Promise<{ updatedLocations: number; updatedEntries: number }> => {
+    const from = oldName.trim()
+    const to = newName.trim()
+    let result = { updatedLocations: 0, updatedEntries: 0 }
+    if (isSupabaseConfigured()) {
+      result = await supabaseService.renameBuilding(from, to)
+    } else {
+      try {
+        result = await req<{ updatedLocations: number; updatedEntries: number }>('/api/buildings/rename', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ old_building: from, new_building: to }),
+        })
+      } catch (e) {
+        console.warn('Local renameBuilding error:', e)
+      }
+    }
+    // Update local cache if any
+    try {
+      const raw = localStorage.getItem('bgh_custom_locations')
+      if (raw) {
+        const list: LocationItem[] = JSON.parse(raw)
+        let changed = false
+        for (const item of list) {
+          if (item.building === from) {
+            item.building = to
+            changed = true
+          }
+        }
+        if (changed) {
+          localStorage.setItem('bgh_custom_locations', JSON.stringify(list))
+        }
+      }
+    } catch {}
+    return result
+  },
+
+  deleteBuilding: async (building: string): Promise<void> => {
+    const b = building.trim()
+    if (isSupabaseConfigured()) {
+      await supabaseService.deleteBuilding(b)
+    } else {
+      try {
+        await req('/api/buildings/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ building: b }),
+        })
+      } catch (e) {
+        console.warn('Local deleteBuilding error:', e)
+      }
+    }
+    try {
+      const raw = localStorage.getItem('bgh_custom_locations')
+      if (raw) {
+        const list: LocationItem[] = JSON.parse(raw)
+        const filtered = list.filter((x) => x.building !== b)
+        localStorage.setItem('bgh_custom_locations', JSON.stringify(filtered))
+      }
+    } catch {}
+  },
 }
 

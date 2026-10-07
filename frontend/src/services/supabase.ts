@@ -263,4 +263,66 @@ export const supabaseService = {
 
     if (error) throw error
   },
+
+  async renameBuilding(oldName: string, newName: string): Promise<{ updatedLocations: number; updatedEntries: number }> {
+    if (!supabase) throw new Error('Supabase is not configured')
+    const from = oldName.trim()
+    const to = newName.trim()
+    if (!from || !to) throw new Error('กรุณาระบุชื่ออาคารเดิมและชื่ออาคารใหม่')
+    if (from === to) return { updatedLocations: 0, updatedEntries: 0 }
+
+    // 1. Update entries table
+    const { data: entriesData, error: entriesError } = await supabase
+      .from('entries')
+      .update({ building: to })
+      .eq('building', from)
+      .select('id')
+
+    if (entriesError) {
+      console.error('Failed to rename building in entries:', entriesError)
+      throw entriesError
+    }
+
+    // 2. Update locations table
+    const { data: locData, error: locError } = await supabase
+      .from('locations')
+      .update({ building: to })
+      .eq('building', from)
+      .select('id')
+
+    if (locError) {
+      console.warn('Failed to rename building in locations:', locError)
+    }
+
+    return {
+      updatedEntries: entriesData ? entriesData.length : 0,
+      updatedLocations: locData ? locData.length : 0,
+    }
+  },
+
+  async deleteBuilding(building: string): Promise<void> {
+    if (!supabase) throw new Error('Supabase is not configured')
+    const b = building.trim()
+    if (!b) return
+
+    // 1. Verify no entries remain in this building
+    const { data: entries, error: countErr } = await supabase
+      .from('entries')
+      .select('id')
+      .eq('building', b)
+      .limit(1)
+
+    if (countErr) throw countErr
+    if (entries && entries.length > 0) {
+      throw new Error(`ไม่สามารถลบอาคาร "${b}" ได้ เนื่องจากยังมีหน่วยงานอยู่ในอาคารนี้`)
+    }
+
+    // 2. Delete all locations rows for this building
+    const { error: locErr } = await supabase
+      .from('locations')
+      .delete()
+      .eq('building', b)
+
+    if (locErr) throw locErr
+  },
 }
