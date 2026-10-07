@@ -2,11 +2,12 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { api } from './services/api'
 import { exportToExcel } from './services/excel'
-import type { Entry, BuildingMeta, Stats, ImportPayload } from './types'
+import type { Entry, BuildingMeta, Stats, ImportPayload, LocationItem } from './types'
 import EntryModal from './components/EntryModal.vue'
 import ImportModal from './components/ImportModal.vue'
 import RelocateModal from './components/RelocateModal.vue'
 import AdminLoginModal from './components/AdminLoginModal.vue'
+import LocationSettingsModal from './components/LocationSettingsModal.vue'
 import { supabaseService, isSupabaseConfigured } from './services/supabase'
 
 // Admin & Authentication State
@@ -95,6 +96,8 @@ function setSearchScope(scope: 'all' | 'building') {
 // Modals
 const modalOpen = ref(false)
 const importModalOpen = ref(false)
+const locationSettingsModalOpen = ref(false)
+const configuredLocations = ref<LocationItem[]>([])
 const editing = ref<Entry | null>(null)
 
 // Toast & Feedback
@@ -120,19 +123,46 @@ function showToast(msg: string, type: 'success' | 'error' = 'success') {
   }, 3200)
 }
 
+async function loadConfiguredLocations() {
+  try {
+    configuredLocations.value = await api.getLocations()
+  } catch (e) {
+    console.warn('Failed to load configured locations', e)
+  }
+}
+
+async function handleLocationsUpdated() {
+  await loadConfiguredLocations()
+  await refreshMeta()
+  await load()
+}
+
 // Computed
-const buildings = computed(() => meta.value.map((x) => x.building))
+const buildings = computed(() => {
+  const set = new Set(meta.value.map((x) => x.building))
+  for (const loc of configuredLocations.value) {
+    if (loc.building) set.add(loc.building)
+  }
+  return Array.from(set).filter(Boolean)
+})
 
 const allFloors = computed(() => {
   const set = new Set<string>()
   for (const e of entries.value) {
     if (e.floor) set.add(e.floor)
   }
+  for (const loc of configuredLocations.value) {
+    if (!activeBuilding.value || loc.building === activeBuilding.value) {
+      if (loc.floor) set.add(loc.floor)
+    }
+  }
   return Array.from(set).sort(floorSort)
 })
 
 function floorSort(a: string, b: string) {
   const val = (s: string) => {
+    if (s.includes('B2') || s.includes('b2')) return -2
+    if (s.includes('B1') || s.includes('b1') || s.includes('ใต้ดิน')) return -1
     if (s.includes('G') || s.includes('g')) return 0
     const m = s.match(/\d+/)
     return m ? Number(m[0]) + 1 : 999
@@ -374,6 +404,7 @@ function onKeyDown(e: KeyboardEvent) {
     searchInputRef.value?.select()
   } else if (e.key === 'Escape') {
     if (adminLoginModalOpen.value) adminLoginModalOpen.value = false
+    else if (locationSettingsModalOpen.value) locationSettingsModalOpen.value = false
     else if (modalOpen.value) modalOpen.value = false
     else if (importModalOpen.value) importModalOpen.value = false
     else if (relocateModalOpen.value) relocateModalOpen.value = false
@@ -384,6 +415,7 @@ function onKeyDown(e: KeyboardEvent) {
 onMounted(async () => {
   window.addEventListener('keydown', onKeyDown)
   await checkAdminStatus()
+  await loadConfiguredLocations()
   await refreshMeta()
   await load()
 })
@@ -599,6 +631,17 @@ onUnmounted(() => {
               <line x1="5" y1="12" x2="19" y2="12"/>
             </svg>
             <span>+ เพิ่มหน่วยงานใหม่</span>
+          </button>
+
+          <button v-if="isAdmin" type="button" class="btn btn-outline btn-sm w-full btn-loc-manage" style="width: 100%; margin-top: 0.4rem; justify-content: center;" @click="locationSettingsModalOpen = true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 21h18"/>
+              <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
+              <path d="M9 9h1"/>
+              <path d="M9 13h1"/>
+              <path d="M9 17h1"/>
+            </svg>
+            <span>⚙️ จัดการอาคารและชั้น</span>
           </button>
 
           <div class="action-row-2">
@@ -1002,6 +1045,15 @@ onUnmounted(() => {
       :open="adminLoginModalOpen"
       @close="adminLoginModalOpen = false"
       @login-success="handleLoginSuccess"
+    />
+
+    <!-- Location Settings Modal -->
+    <LocationSettingsModal
+      :open="locationSettingsModalOpen"
+      :buildings="buildings"
+      :entries="entries"
+      @close="locationSettingsModalOpen = false"
+      @updated="handleLocationsUpdated"
     />
 
     <!-- Toast Notification -->

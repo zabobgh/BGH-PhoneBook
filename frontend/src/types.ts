@@ -23,3 +23,10 @@ export interface ImportPayload {
   mode: 'append' | 'replace'
   items: Array<Omit<Entry, 'id'>>
 }
+
+export interface LocationItem {
+  id?: number
+  building: string
+  floor: string
+  sort_order?: number
+}

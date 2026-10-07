@@ -1,4 +1,4 @@
-import type { Entry, BuildingMeta, Stats, ImportPayload } from '../types'
+import type { Entry, BuildingMeta, Stats, ImportPayload, LocationItem } from '../types'
 import * as wailsApp from '../../wailsjs/go/main/App'
 import { isSupabaseConfigured, supabaseService } from './supabase'
 
@@ -155,4 +155,59 @@ export const api = {
     }
     window.location.href = '/api/backup'
   },
+
+  getLocations: async (): Promise<LocationItem[]> => {
+    if (isSupabaseConfigured()) {
+      try {
+        const supaLocs = await supabaseService.getLocations()
+        if (supaLocs && supaLocs.length > 0) return supaLocs
+      } catch (e) {
+        console.warn('Supabase getLocations error:', e)
+      }
+    }
+    try {
+      const raw = localStorage.getItem('bgh_custom_locations')
+      if (raw) return JSON.parse(raw)
+    } catch {}
+    return []
+  },
+
+  addLocation: async (building: string, floor: string): Promise<LocationItem> => {
+    let item: LocationItem = { building: building.trim(), floor: floor.trim() }
+    if (isSupabaseConfigured()) {
+      try {
+        item = await supabaseService.addLocation(building, floor)
+      } catch (e) {
+        console.warn('Supabase addLocation error, fallback local:', e)
+      }
+    }
+    try {
+      const raw = localStorage.getItem('bgh_custom_locations')
+      const list: LocationItem[] = raw ? JSON.parse(raw) : []
+      if (!list.some((x) => x.building === item.building && x.floor === item.floor)) {
+        list.push(item)
+        localStorage.setItem('bgh_custom_locations', JSON.stringify(list))
+      }
+    } catch {}
+    return item
+  },
+
+  deleteLocation: async (building: string, floor: string): Promise<void> => {
+    if (isSupabaseConfigured()) {
+      try {
+        await supabaseService.deleteLocation(building, floor)
+      } catch (e) {
+        console.warn('Supabase deleteLocation error:', e)
+      }
+    }
+    try {
+      const raw = localStorage.getItem('bgh_custom_locations')
+      if (raw) {
+        const list: LocationItem[] = JSON.parse(raw)
+        const filtered = list.filter((x) => !(x.building === building.trim() && x.floor === floor.trim()))
+        localStorage.setItem('bgh_custom_locations', JSON.stringify(filtered))
+      }
+    } catch {}
+  },
 }
+

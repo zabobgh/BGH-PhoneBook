@@ -1,5 +1,5 @@
 import { createClient, type SupabaseClient, type User } from '@supabase/supabase-js'
-import type { Entry, BuildingMeta, Stats, ImportPayload } from '../types'
+import type { Entry, BuildingMeta, Stats, ImportPayload, LocationItem } from '../types'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
@@ -218,5 +218,49 @@ export const supabaseService = {
 
     if (error) throw error
     return (data || []) as Entry[]
+  },
+
+  // Location management methods
+  async getLocations(): Promise<LocationItem[]> {
+    if (!supabase) throw new Error('Supabase is not configured')
+    const { data, error } = await supabase
+      .from('locations')
+      .select('id, building, floor, sort_order')
+      .order('building', { ascending: true })
+      .order('sort_order', { ascending: true })
+      .order('id', { ascending: true })
+
+    if (error) {
+      console.warn('Could not load locations from supabase table:', error)
+      return []
+    }
+    return (data || []) as LocationItem[]
+  },
+
+  async addLocation(building: string, floor: string): Promise<LocationItem> {
+    if (!supabase) throw new Error('Supabase is not configured')
+    const b = building.trim()
+    const f = floor.trim()
+    if (!b || !f) throw new Error('กรุณาระบุอาคารและชั้น')
+
+    const { data, error } = await supabase
+      .from('locations')
+      .upsert({ building: b, floor: f }, { onConflict: 'building,floor' })
+      .select()
+      .single()
+
+    if (error) throw error
+    return data as LocationItem
+  },
+
+  async deleteLocation(building: string, floor: string): Promise<void> {
+    if (!supabase) throw new Error('Supabase is not configured')
+    const { error } = await supabase
+      .from('locations')
+      .delete()
+      .eq('building', building.trim())
+      .eq('floor', floor.trim())
+
+    if (error) throw error
   },
 }
