@@ -652,6 +652,43 @@ onUnmounted(() => {
           </button>
         </nav>
 
+        <!-- Hospital Quick Info & Emergency Card (Anchors the sidebar beautifully) -->
+        <div class="sidebar-hospital-card">
+          <div class="hospital-brand-row">
+            <div class="hospital-icon-badge">🏥</div>
+            <div class="hospital-text-wrap">
+              <span class="hospital-name">โรงพยาบาลบ้านแพ้ว</span>
+              <span class="hospital-sub">องค์การมหาชน · จ.สมุทรสาคร</span>
+            </div>
+          </div>
+          <div class="emergency-box">
+            <div class="em-title">
+              <span class="em-dot"></span>
+              <span>เบอร์ห้องฉุกเฉิน (ER 24 ชม.)</span>
+            </div>
+            <div class="em-phone-list">
+              <button
+                type="button"
+                class="em-btn"
+                :class="{ copied: isPhoneCopied(999991, '1041') }"
+                title="คัดลอกเบอร์ฉุกเฉิน 1041"
+                @click="copyPhone('1041', 'ฉุกเฉิน ER', 999991)"
+              >
+                📞 1041
+              </button>
+              <button
+                type="button"
+                class="em-btn"
+                :class="{ copied: isPhoneCopied(999992, '1042') }"
+                title="คัดลอกเบอร์ฉุกเฉิน 1042"
+                @click="copyPhone('1042', 'ฉุกเฉิน ER', 999992)"
+              >
+                📞 1042
+              </button>
+            </div>
+          </div>
+        </div>
+
         <!-- Sidebar Actions (Only visible for logged-in Admin) -->
         <div v-if="isAdmin" class="sidebar-actions">
           <button type="button" class="btn btn-signal" @click="addNew">
