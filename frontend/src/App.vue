@@ -251,6 +251,9 @@ async function copyPhone(phoneText: string, label = '', id?: number) {
   if (!cleanNumber) return
   try {
     await navigator.clipboard.writeText(cleanNumber)
+    if ('vibrate' in navigator) {
+      try { navigator.vibrate(35) } catch {}
+    }
     if (id !== undefined) {
       copiedPhoneKey.value = `${id}::${cleanNumber}`
       window.clearTimeout(copiedTimer)
@@ -580,6 +583,33 @@ onUnmounted(() => {
       </div>
     </section>
 
+    <!-- Mobile Horizontal Building Scroller (Phone / Tablet) -->
+    <div class="mobile-building-bar">
+      <div class="mobile-building-scroller">
+        <button
+          type="button"
+          class="mobile-b-pill"
+          :class="{ active: activeBuilding === '' }"
+          @click="selectBuilding('')"
+        >
+          <span class="b-pill-icon">🏢</span>
+          <span>ทุกอาคาร</span>
+          <span class="b-pill-count">{{ meta.reduce((s, x) => s + x.count, 0) }}</span>
+        </button>
+        <button
+          v-for="b in meta"
+          :key="b.building"
+          type="button"
+          class="mobile-b-pill"
+          :class="{ active: b.building === activeBuilding }"
+          @click="selectBuilding(b.building)"
+        >
+          <span>{{ b.building }}</span>
+          <span class="b-pill-count">{{ b.count }}</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Main Content Layout -->
     <div class="app-layout">
       <!-- Sidebar -->
@@ -623,9 +653,9 @@ onUnmounted(() => {
           </button>
         </nav>
 
-        <!-- Sidebar Actions -->
-        <div class="sidebar-actions">
-          <button v-if="isAdmin" type="button" class="btn btn-signal" @click="addNew">
+        <!-- Sidebar Actions (Only visible for logged-in Admin) -->
+        <div v-if="isAdmin" class="sidebar-actions">
+          <button type="button" class="btn btn-signal" @click="addNew">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
               <line x1="12" y1="5" x2="12" y2="19"/>
               <line x1="5" y1="12" x2="19" y2="12"/>
@@ -633,7 +663,7 @@ onUnmounted(() => {
             <span>+ เพิ่มหน่วยงานใหม่</span>
           </button>
 
-          <button v-if="isAdmin" type="button" class="btn btn-outline btn-sm w-full btn-loc-manage" style="width: 100%; margin-top: 0.4rem; justify-content: center;" @click="locationSettingsModalOpen = true">
+          <button type="button" class="btn btn-outline btn-sm w-full btn-loc-manage" style="width: 100%; margin-top: 0.4rem; justify-content: center;" @click="locationSettingsModalOpen = true">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M3 21h18"/>
               <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
@@ -653,7 +683,7 @@ onUnmounted(() => {
               </svg>
               <span>ส่งออก Excel</span>
             </button>
-            <button v-if="isAdmin" type="button" class="btn btn-outline btn-sm" title="นำเข้า Excel" @click="importModalOpen = true">
+            <button type="button" class="btn btn-outline btn-sm" title="นำเข้า Excel" @click="importModalOpen = true">
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="17 8 12 3 7 8"/>
@@ -664,7 +694,7 @@ onUnmounted(() => {
           </div>
 
           <div class="action-row-2">
-            <button v-if="isAdmin" type="button" class="btn btn-light btn-sm" title="สำรองไฟล์ JSON" @click="api.backupDownload">
+            <button type="button" class="btn btn-light btn-sm" title="สำรองไฟล์ JSON" @click="api.backupDownload">
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
                 <polyline points="17 21 17 13 7 13 7 21"/>
@@ -737,7 +767,7 @@ onUnmounted(() => {
               </button>
             </div>
 
-            <button type="button" class="btn btn-outline" @click="handleExportExcel">
+            <button v-if="isAdmin" type="button" class="btn btn-outline" @click="handleExportExcel">
               <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
@@ -745,7 +775,7 @@ onUnmounted(() => {
               </svg>
               <span>ส่งออก Excel</span>
             </button>
-            <button type="button" class="btn btn-signal" @click="addNew">
+            <button v-if="isAdmin" type="button" class="btn btn-signal" @click="addNew">
               <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5">
                 <line x1="12" y1="5" x2="12" y2="19"/>
                 <line x1="5" y1="12" x2="19" y2="12"/>
@@ -864,18 +894,30 @@ onUnmounted(() => {
                       <span v-if="e.external_phone" class="ext-phone-text">
                         <span class="ext-lbl">สายนอก:</span>
                         <span class="ext-phone-pills">
-                          <button
+                          <span
                             v-for="(ep, epIdx) in parsePhoneNumbers(e.external_phone)"
                             :key="epIdx"
-                            type="button"
-                            class="ext-phone-btn"
-                            :class="{ copied: isPhoneCopied(e.id, ep) }"
-                            :title="`คลิกเพื่อคัดลอกเบอร์สายนอก ${ep}`"
-                            @click.stop="copyPhone(ep, e.department, e.id)"
+                            class="ext-phone-chip-wrap"
                           >
-                            <span v-if="isPhoneCopied(e.id, ep)">✓ {{ ep }}</span>
-                            <span v-else v-html="highlight(ep)"></span>
-                          </button>
+                            <button
+                              type="button"
+                              class="ext-phone-btn"
+                              :class="{ copied: isPhoneCopied(e.id, ep) }"
+                              :title="`คลิกเพื่อคัดลอกเบอร์สายนอก ${ep}`"
+                              @click.stop="copyPhone(ep, e.department, e.id)"
+                            >
+                              <span v-if="isPhoneCopied(e.id, ep)">✓ {{ ep }}</span>
+                              <span v-else v-html="highlight(ep)"></span>
+                            </button>
+                            <a
+                              :href="'tel:' + ep.replace(/[^0-9]/g, '')"
+                              class="ext-tel-link"
+                              :title="`โทรออก ${ep}`"
+                              @click.stop
+                            >
+                              📞
+                            </a>
+                          </span>
                         </span>
                       </span>
                     </div>
