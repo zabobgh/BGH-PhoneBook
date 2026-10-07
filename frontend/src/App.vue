@@ -506,7 +506,7 @@ onUnmounted(() => {
 
     <!-- Hero Omni-Search Section (Primary Tool for Staff & IT) -->
     <section class="hero-search-section">
-      <div class="hero-search-card">
+      <div class="hero-search-card" :class="{ 'has-query': Boolean(q) }">
         <div class="hero-search-bar-row">
           <div class="search-input-wrapper">
             <span class="search-hero-icon" aria-hidden="true">
@@ -519,11 +519,12 @@ onUnmounted(() => {
               ref="searchInputRef"
               v-model="q"
               class="hero-search-input"
-              placeholder="ค้นหาชื่อหน่วยงาน, เบอร์ภายใน (เช่น 1041), เบอร์ตรง, ตึก, ชั้น (ค้นหาเจอทุกอย่าง)..."
+              placeholder="ค้นหาชื่อหน่วยงาน, เบอร์ภายใน (เช่น 1041), เบอร์ตรง, ตึก, ชั้น..."
               @input="onSearchInput"
             />
             <div class="search-input-right-tools">
               <span v-if="loading" class="search-spinner" title="กำลังค้นหา..."></span>
+              <span v-else-if="q" class="search-count-badge">{{ totalFilteredCount }} พบ</span>
               <button
                 v-if="q"
                 type="button"
@@ -533,26 +534,25 @@ onUnmounted(() => {
               >
                 ✕
               </button>
-              <div class="kbd-shortcut-pill" title="กดปุ่มลัดเพื่อค้นหา" @click="searchInputRef?.focus()">
+              <div class="kbd-shortcut-pill desktop-only" title="กดปุ่มลัดเพื่อค้นหา" @click="searchInputRef?.focus()">
                 <span class="kbd">Ctrl</span><span class="kbd-plus">+</span><span class="kbd">K</span>
               </div>
             </div>
           </div>
 
-          <!-- Scope Switcher Buttons -->
-          <div class="search-scope-group">
+          <!-- Scope Switcher Buttons (Only shown when a specific building is selected) -->
+          <div v-if="activeBuilding" class="search-scope-group">
             <button
               type="button"
               class="scope-btn"
-              :class="{ active: searchScope === 'all' || !activeBuilding }"
+              :class="{ active: searchScope === 'all' }"
               title="ค้นหาครอบคลุมทุกตึกทุกชั้นทั่วทั้งโรงพยาบาล"
               @click="setSearchScope('all')"
             >
               <span class="scope-icon">🌐</span>
-              <span>ทุกตึก (ทั้ง รพ.)</span>
+              <span>ทุกตึก</span>
             </button>
             <button
-              v-if="activeBuilding"
               type="button"
               class="scope-btn"
               :class="{ active: searchScope === 'building' }"
@@ -565,9 +565,8 @@ onUnmounted(() => {
           </div>
         </div>
 
-
-        <!-- Active Search Live Feedback Strip -->
-        <div v-if="q" class="search-feedback-banner">
+        <!-- Active Search Live Feedback Strip (Desktop/Tablet) -->
+        <div v-if="q" class="search-feedback-banner desktop-only">
           <div class="feedback-info">
             <span class="feedback-badge">ผลการค้นหา</span>
             <span>
@@ -583,8 +582,8 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <!-- Mobile Horizontal Building Scroller (Phone / Tablet) -->
-    <div class="mobile-building-bar">
+    <!-- Mobile Horizontal Building Scroller (Phone / Tablet) - Only shown in browse mode when NOT searching -->
+    <div v-if="!q" class="mobile-building-bar">
       <div class="mobile-building-scroller">
         <button
           type="button"
@@ -716,7 +715,7 @@ onUnmounted(() => {
       <!-- Main Panel -->
       <main class="main-content">
         <!-- Control Bar -->
-        <section class="control-bar">
+        <section class="control-bar" :class="{ 'is-searching': Boolean(q) }">
           <div class="control-info">
             <h2>
               <span v-if="q">ผลการค้นหา: “{{ q }}”</span>
@@ -785,8 +784,8 @@ onUnmounted(() => {
           </div>
         </section>
 
-        <!-- Floor Quick Filter Bar -->
-        <div v-if="allFloors.length > 1" class="floor-pills-bar">
+        <!-- Floor Quick Filter Bar (Browse Mode Only) -->
+        <div v-if="!q && allFloors.length > 1" class="floor-pills-bar">
           <span class="floor-pill-label">เลือกชั้น:</span>
           <button
             type="button"
@@ -820,8 +819,125 @@ onUnmounted(() => {
 
         <!-- Content Display -->
         <template v-else>
-          <!-- 1. Grid Cards View -->
-          <div v-if="viewMode === 'cards' && grouped.length">
+          <!-- 1A. Search Mode (Direct Stream, No Group Dividers for Zero-Scroll Speed) -->
+          <div v-if="q && viewMode === 'cards' && filteredEntries.length" class="search-stream-view">
+            <div class="entries-grid">
+              <article
+                v-for="e in filteredEntries"
+                :key="e.id"
+                class="entry-card"
+              >
+                <!-- Card Header: Title + Actions -->
+                <div class="card-header-row">
+                  <div class="card-title-group">
+                    <h3 class="entry-dept" v-html="highlight(e.department)"></h3>
+                  </div>
+
+                  <!-- Actions: Relocate, Edit, Delete -->
+                  <div v-if="isAdmin" class="entry-actions">
+                    <button
+                      type="button"
+                      class="btn-icon btn-relocate"
+                      title="ย้ายสถานที่ (เปลี่ยนตึก/ชั้น)"
+                      @click.stop="openRelocate(e)"
+                    >
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-icon"
+                      title="แก้ไขข้อมูล"
+                      @click.stop="edit(e)"
+                    >
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-icon btn-danger"
+                      title="ลบข้อมูล"
+                      @click.stop="remove(e)"
+                    >
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"/>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Card Footer: Meta Chips + Phone Badges -->
+                <div class="card-footer-row">
+                  <div class="entry-meta-tags">
+                    <span class="bldg-chip" v-html="highlight(e.building)"></span>
+                    <span v-if="e.floor" class="floor-chip-mini">📍 {{ e.floor }}</span>
+                    <span v-if="e.external_phone" class="ext-phone-text">
+                      <span class="ext-lbl">สายนอก:</span>
+                      <span class="ext-phone-pills">
+                        <span
+                          v-for="(ep, epIdx) in parsePhoneNumbers(e.external_phone)"
+                          :key="epIdx"
+                          class="ext-phone-chip-wrap"
+                        >
+                          <button
+                            type="button"
+                            class="ext-phone-btn"
+                            :class="{ copied: isPhoneCopied(e.id, ep) }"
+                            :title="`คลิกเพื่อคัดลอกเบอร์สายนอก ${ep}`"
+                            @click.stop="copyPhone(ep, e.department, e.id)"
+                          >
+                            <span v-if="isPhoneCopied(e.id, ep)">✓ {{ ep }}</span>
+                            <span v-else v-html="highlight(ep)"></span>
+                          </button>
+                          <a
+                            :href="'tel:' + ep.replace(/[^0-9]/g, '')"
+                            class="ext-tel-link"
+                            :title="`โทรออก ${ep}`"
+                            @click.stop
+                          >
+                            📞
+                          </a>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+
+                  <!-- Internal Phone & Quick Copy -->
+                  <div class="phone-badge-group">
+                    <template v-if="parsePhoneNumbers(e.internal_phone).length">
+                      <button
+                        v-for="(p, pIdx) in parsePhoneNumbers(e.internal_phone)"
+                        :key="pIdx"
+                        type="button"
+                        class="phone-badge"
+                        :class="{ copied: isPhoneCopied(e.id, p) }"
+                        :title="`คลิกเพื่อคัดลอกเบอร์ ${p}`"
+                        @click.stop="copyPhone(p, e.department, e.id)"
+                      >
+                        <span v-if="isPhoneCopied(e.id, p)">✓ คัดลอกแล้ว</span>
+                        <span v-else>
+                          <span class="copy-icon">📞</span>
+                          <span v-html="highlight(p)"></span>
+                        </span>
+                      </button>
+                    </template>
+                    <span v-else class="phone-badge phone-badge-empty" title="ไม่มีเบอร์ภายใน">
+                      <span class="copy-icon">📞</span>
+                      <span>—</span>
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- 1B. Browse Mode (Grouped by Floor) -->
+          <div v-else-if="!q && viewMode === 'cards' && grouped.length">
             <section v-for="[floor, items] in grouped" :key="floor" class="floor-group">
               <div class="floor-title-header">
                 <div class="floor-tag">
@@ -1047,10 +1163,17 @@ onUnmounted(() => {
           <div v-else class="empty-state">
             <div class="empty-icon">🔍</div>
             <h3>ไม่พบข้อมูลเบอร์โทรศัพท์</h3>
-            <p v-if="q">ไม่พบหน่วยงานหรือเบอร์โทรที่ตรงกับ “{{ q }}” กรุณาลองเปลี่ยนคำค้นหา</p>
-            <p v-else>ยังไม่มีข้อมูลในหมวดหมู่นี้ คุณสามารถกดเพิ่มข้อมูลเพื่อสร้างรายการใหม่ได้</p>
-            <button v-if="q" type="button" class="btn btn-outline" @click="clearSearch">ล้างการค้นหา</button>
-            <button v-else type="button" class="btn btn-primary" @click="addNew">+ เพิ่มหน่วยงานแรก</button>
+            <p v-if="q">ไม่พบหน่วยงานหรือเบอร์โทรที่ตรงกับ “{{ q }}”</p>
+            <!-- Scope Switch Suggestion -->
+            <div v-if="q && activeBuilding && searchScope === 'building'" class="scope-switch-card">
+              <p>คำค้นหานี้อาจจะอยู่ในตึกอื่นของโรงพยาบาล</p>
+              <button type="button" class="btn btn-signal btn-sm" @click="setSearchScope('all')">
+                🌐 สลับไปค้นหาทุกตึกทั่วทั้งโรงพยาบาล
+              </button>
+            </div>
+            <p v-else-if="!q">ยังไม่มีข้อมูลในหมวดหมู่นี้</p>
+            <button v-if="q" type="button" class="btn btn-outline" style="margin-top: 10px;" @click="clearSearch">ล้างการค้นหา</button>
+            <button v-else-if="isAdmin" type="button" class="btn btn-primary" @click="addNew">+ เพิ่มหน่วยงานแรก</button>
           </div>
         </template>
       </main>
