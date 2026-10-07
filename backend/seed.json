@@ -1,0 +1,2146 @@
+[
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น G",
+    "department": "สุขภาพใจ",
+    "internal_phone": "9508 , 1062",
+    "external_phone": "",
+    "sort_order": 1
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น G",
+    "department": "Call Center",
+    "internal_phone": "6",
+    "external_phone": "",
+    "sort_order": 2
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น G",
+    "department": "OPD กระดูกและข้อ",
+    "internal_phone": "9590 / 1041 , 1079",
+    "external_phone": "",
+    "sort_order": 3
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น G",
+    "department": "คลินิกหมอครอบครัว",
+    "internal_phone": "9588",
+    "external_phone": "",
+    "sort_order": 4
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น G",
+    "department": "ศูนย์แพทย์แผนไทย(สปา)",
+    "internal_phone": "9524 ,1047",
+    "external_phone": "",
+    "sort_order": 5
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น G",
+    "department": "กายภาพบำบัด",
+    "internal_phone": "9591 , 5081",
+    "external_phone": "",
+    "sort_order": 6
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น G",
+    "department": "OPD เวชศาสตร์ฟื้นฟู",
+    "internal_phone": "9520",
+    "external_phone": "",
+    "sort_order": 7
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น G",
+    "department": "ห้องแพทย์",
+    "internal_phone": "5082",
+    "external_phone": "",
+    "sort_order": 8
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ผู้ป่วยนอกอายุรกรรม",
+    "internal_phone": "1102",
+    "external_phone": "",
+    "sort_order": 9
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "คลินิกเบาหวาน",
+    "internal_phone": "9523",
+    "external_phone": "",
+    "sort_order": 10
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "เคาน์เตอร์นัด, เลื่อนนัดอายุรกรรม",
+    "internal_phone": "9522",
+    "external_phone": "",
+    "sort_order": 11
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "- ห้องตรวจ 1",
+    "internal_phone": "1067",
+    "external_phone": "",
+    "sort_order": 12
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "- ห้องตรวจ 2",
+    "internal_phone": "1004",
+    "external_phone": "",
+    "sort_order": 13
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "- ห้องตรวจ 3",
+    "internal_phone": "1005",
+    "external_phone": "",
+    "sort_order": 14
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "- ห้องตรวจ 4",
+    "internal_phone": "1006",
+    "external_phone": "",
+    "sort_order": 15
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "- ห้องตรวจ 5",
+    "internal_phone": "1007",
+    "external_phone": "",
+    "sort_order": 16
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "- ห้องตรวจ 7",
+    "internal_phone": "1171",
+    "external_phone": "",
+    "sort_order": 17
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "- ห้องตรวจ 8",
+    "internal_phone": "1034",
+    "external_phone": "",
+    "sort_order": 18
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "- ห้องตรวจ 9",
+    "internal_phone": "1010",
+    "external_phone": "",
+    "sort_order": 19
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ห้องยาผู้ป่วยนอก",
+    "internal_phone": "9509 , 1063",
+    "external_phone": "",
+    "sort_order": 20
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "รับโทรสารทางยา",
+    "internal_phone": "1122",
+    "external_phone": "",
+    "sort_order": 21
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ห้องเก็บเงิน",
+    "internal_phone": "1011",
+    "external_phone": "",
+    "sort_order": 22
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "เวชระเบียน",
+    "internal_phone": "9514 ,1212",
+    "external_phone": "",
+    "sort_order": 23
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ขอประวัติ",
+    "internal_phone": "9515",
+    "external_phone": "",
+    "sort_order": 24
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ทะเบียนราษฎร์",
+    "internal_phone": "9510",
+    "external_phone": "",
+    "sort_order": 25
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ประชาสัมพันธ์",
+    "internal_phone": "1023",
+    "external_phone": "",
+    "sort_order": 26
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "สิทธิ์ จองห้อง",
+    "internal_phone": "9505 , 9506",
+    "external_phone": "",
+    "sort_order": 27
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "เอกซเรย์ OPD",
+    "internal_phone": "9532",
+    "external_phone": "",
+    "sort_order": 28
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ศูนย์รับเรื่องร้องเรียน",
+    "internal_phone": "9575",
+    "external_phone": "",
+    "sort_order": 29
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ห้องเจาะเลือด",
+    "internal_phone": "9563",
+    "external_phone": "",
+    "sort_order": 30
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "ห้อง Observe อายุรกรรม",
+    "internal_phone": "9516 ,9596",
+    "external_phone": "",
+    "sort_order": 31
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "คลีนิคโรคหัวใจ",
+    "internal_phone": "9513, 1048",
+    "external_phone": "",
+    "sort_order": 32
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 1",
+    "department": "คลีนิคภูมิแพ้",
+    "internal_phone": "9507",
+    "external_phone": "",
+    "sort_order": 33
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 2",
+    "department": "คลีนิคระบบทางเดินอาหารและตับ",
+    "internal_phone": "9526",
+    "external_phone": "",
+    "sort_order": 34
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 2",
+    "department": "คลีนิคโรคข้อและรูมาติสซั่ม",
+    "internal_phone": "9526",
+    "external_phone": "",
+    "sort_order": 35
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 2",
+    "department": "คลีนิคโรคต่อมไร้ท่อ",
+    "internal_phone": "9526",
+    "external_phone": "",
+    "sort_order": 36
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 2",
+    "department": "ระบบประสาทและสมอง",
+    "internal_phone": "1130",
+    "external_phone": "",
+    "sort_order": 37
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 2",
+    "department": "ศูนย์เคมีบำบัดและโรคเลือด (OPD)",
+    "internal_phone": "9566",
+    "external_phone": "",
+    "sort_order": 38
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 2",
+    "department": "ห้องให้ยาเคมี",
+    "internal_phone": "9565",
+    "external_phone": "",
+    "sort_order": 39
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 2",
+    "department": "ศูนย์ชีวาภิบาล",
+    "internal_phone": "9559",
+    "external_phone": "",
+    "sort_order": 40
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 3",
+    "department": "ผู้ป่วยในหลังคลอด (PP)/3C",
+    "internal_phone": "9561 , 9562",
+    "external_phone": "",
+    "sort_order": 41
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 4",
+    "department": "ศูนย์ทันตกรรม",
+    "internal_phone": "9569 , 5101",
+    "external_phone": "",
+    "sort_order": 42
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 4",
+    "department": "ห้องตรวจพัฒนาการเด็ก",
+    "internal_phone": "",
+    "external_phone": "",
+    "sort_order": 43
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 4",
+    "department": "เคาท์เตอร์",
+    "internal_phone": "9560",
+    "external_phone": "",
+    "sort_order": 44
+  },
+  {
+    "building": "ตึกเฉลิมพระเกียรติ",
+    "floor": "ชั้น 4",
+    "department": "ห้องตรวจ 1",
+    "internal_phone": "1052",
+    "external_phone": "",
+    "sort_order": 45
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 1",
+    "department": "ไตเทียม 1 ( ล้างไตด้วยเครื่อง )",
+    "internal_phone": "1103 , 1138",
+    "external_phone": "",
+    "sort_order": 46
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 1",
+    "department": "fax.",
+    "internal_phone": "9519",
+    "external_phone": "",
+    "sort_order": 47
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 1",
+    "department": "ไตเทียม 3",
+    "internal_phone": "1142 , 9521",
+    "external_phone": "",
+    "sort_order": 48
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 1",
+    "department": "ห้องแพทย์",
+    "internal_phone": "1141",
+    "external_phone": "",
+    "sort_order": 49
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 2",
+    "department": "หอผู้ป่วยสามัญชาย (อายุรกรรม 1)",
+    "internal_phone": "9546 , 9547",
+    "external_phone": "",
+    "sort_order": 50
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 2",
+    "department": "หอผู้ป่วยสามัญหญิง (อายุรกรรม 2)",
+    "internal_phone": "9548 , 9549",
+    "external_phone": "",
+    "sort_order": 51
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 3",
+    "department": "หอผู้ป่วยพิเศษ ชั้น 3/1",
+    "internal_phone": "9533 , 9534 , 1301",
+    "external_phone": "",
+    "sort_order": 52
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 4",
+    "department": "หอผู้ป่วยศัลยกรรมชาย (ศัลยกรรม 2)",
+    "internal_phone": "9544 , 9545",
+    "external_phone": "",
+    "sort_order": 53
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 5",
+    "department": "สิทธิประโยชน์",
+    "internal_phone": "9539, 9599 / 1028",
+    "external_phone": "",
+    "sort_order": 54
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 5",
+    "department": "เวชสถิติ",
+    "internal_phone": "1035 , 9535",
+    "external_phone": "",
+    "sort_order": 55
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 5",
+    "department": "บริหารงานทั่วไป",
+    "internal_phone": "1606 , 1030",
+    "external_phone": "",
+    "sort_order": 56
+  },
+  {
+    "building": "ตึกสมเด็จย่า 1",
+    "floor": "ชั้น 5",
+    "department": "กายภาพบำบัด",
+    "internal_phone": "9591",
+    "external_phone": "",
+    "sort_order": 57
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 1",
+    "department": "ICU 2",
+    "internal_phone": "9518 / 5012",
+    "external_phone": "",
+    "sort_order": 58
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 1",
+    "department": "ห้องพักแพทย์เวร GP Med",
+    "internal_phone": "5010",
+    "external_phone": "",
+    "sort_order": 59
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 1",
+    "department": "ไตเทียม 2 (CAPD , OPD โรคไต)",
+    "internal_phone": "5003 , 9594",
+    "external_phone": "",
+    "sort_order": 60
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 2",
+    "department": "หอผู้ป่วยอายุรกรรม 3",
+    "internal_phone": "9582,5025",
+    "external_phone": "",
+    "sort_order": 61
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 2",
+    "department": "หอผู้ป่วยศัลยกรรมหญิง (ศัลยกรรม 1)",
+    "internal_phone": "5022 , 9580",
+    "external_phone": "",
+    "sort_order": 62
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 3",
+    "department": "หอผู้ป่วยพิเศษ 3/2",
+    "internal_phone": "9583 , 5030 / 5031",
+    "external_phone": "",
+    "sort_order": 63
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 4",
+    "department": "หอผู้ป่วยพิเศษ 4/2",
+    "internal_phone": "5056 / 9584",
+    "external_phone": "",
+    "sort_order": 64
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 5",
+    "department": "หอผู้ป่วยกระดูกและข้อ",
+    "internal_phone": "5088 , 9592",
+    "external_phone": "",
+    "sort_order": 65
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 5",
+    "department": "Semi ICU",
+    "internal_phone": "5086 , 9585",
+    "external_phone": "",
+    "sort_order": 66
+  },
+  {
+    "building": "ตึกสมเด็จย่า 2",
+    "floor": "ชั้น 5",
+    "department": "pre-post cath",
+    "internal_phone": "5087",
+    "external_phone": "",
+    "sort_order": 67
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ห้องยา 2",
+    "internal_phone": "9540",
+    "external_phone": "",
+    "sort_order": 68
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ห้องเก็บเงิน",
+    "internal_phone": "1054",
+    "external_phone": "",
+    "sort_order": 69
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "สปา2 (แผนไทย)",
+    "internal_phone": "9527 , 1074",
+    "external_phone": "",
+    "sort_order": 70
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ผู้ป่วยนอกกุมาร",
+    "internal_phone": "9529",
+    "external_phone": "",
+    "sort_order": 71
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "โต๊ะซักประวัติเด็กป่วย",
+    "internal_phone": "1150",
+    "external_phone": "",
+    "sort_order": 72
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "โต๊ะซักประวัติเด็กฉีดวัคซีน",
+    "internal_phone": "1075, 9528",
+    "external_phone": "",
+    "sort_order": 73
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "คลีนิคโรคปอด",
+    "internal_phone": "9502 , 5102",
+    "external_phone": "",
+    "sort_order": 74
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ศูนย์บริจาค รพ.บ้านแพ้ว",
+    "internal_phone": "9573",
+    "external_phone": "",
+    "sort_order": 75
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "มูลนิธิ",
+    "internal_phone": "9595",
+    "external_phone": "",
+    "sort_order": 76
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ร้านยามูลนิธิ",
+    "internal_phone": "5099",
+    "external_phone": "",
+    "sort_order": 77
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "The cube",
+    "internal_phone": "5097",
+    "external_phone": "",
+    "sort_order": 78
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "รปภ.ป้อมหน้า",
+    "internal_phone": "9103",
+    "external_phone": "",
+    "sort_order": 79
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ประชาสัมพันธ์",
+    "internal_phone": "1023",
+    "external_phone": "",
+    "sort_order": 80
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ศูนย์ช่าง",
+    "internal_phone": "9553 , 9999",
+    "external_phone": "",
+    "sort_order": 81
+  },
+  {
+    "building": "อาคารเก่าทางเชื่อมระหว่างตึก",
+    "floor": "ไม่ระบุชั้น",
+    "department": "สิ่งแวดล้อม",
+    "internal_phone": "9552",
+    "external_phone": "",
+    "sort_order": 82
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "อาชีวอนามัย (แรงงานต่างด้าว) ตรวจสุ ขภาพ",
+    "internal_phone": "9550",
+    "external_phone": "",
+    "sort_order": 83
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ห้องประมวลผล",
+    "internal_phone": "9551",
+    "external_phone": "",
+    "sort_order": 84
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "สหกรณ์ร้านค้า",
+    "internal_phone": "9554",
+    "external_phone": "",
+    "sort_order": 85
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ศูนย์คอมพิวเตอร์",
+    "internal_phone": "1900",
+    "external_phone": "",
+    "sort_order": 86
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "งานข้อมูล",
+    "internal_phone": "1904",
+    "external_phone": "",
+    "sort_order": 87
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "คุณปิยนุช",
+    "internal_phone": "9504",
+    "external_phone": "",
+    "sort_order": 88
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "จัดซื้อยา",
+    "internal_phone": "9503 , 1151",
+    "external_phone": "",
+    "sort_order": 89
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "คลังยา",
+    "internal_phone": "9512",
+    "external_phone": "",
+    "sort_order": 90
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "คลังยา (โทรสาร)",
+    "internal_phone": "034-483199",
+    "external_phone": "",
+    "sort_order": 91
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ศูนย์อาหาร",
+    "internal_phone": "9587",
+    "external_phone": "",
+    "sort_order": 92
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ห้องครัว(สโตร์)",
+    "internal_phone": "1077",
+    "external_phone": "",
+    "sort_order": 93
+  },
+  {
+    "building": "อาคารริมน้ำ",
+    "floor": "ไม่ระบุชั้น",
+    "department": "ร้านกาแฟมุมสบาย",
+    "internal_phone": "5098",
+    "external_phone": "",
+    "sort_order": 94
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "ศูนย์ Porter (เวรเปล)",
+    "internal_phone": "1234",
+    "external_phone": "",
+    "sort_order": 95
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "ซักฟอก",
+    "internal_phone": "9401",
+    "external_phone": "",
+    "sort_order": 96
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "โลจิสติกส์",
+    "internal_phone": "9402",
+    "external_phone": "",
+    "sort_order": 97
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "หัวหน้าแม่บ้าน",
+    "internal_phone": "9402",
+    "external_phone": "",
+    "sort_order": 98
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 2",
+    "department": "ห้องปราศจากเชื้อ (ห้องนึ่ง)",
+    "internal_phone": "9405",
+    "external_phone": "",
+    "sort_order": 99
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 2",
+    "department": "ห้องเก็บอุปกรณ์ปลอดเชื้อ",
+    "internal_phone": "9406",
+    "external_phone": "",
+    "sort_order": 100
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 2",
+    "department": "ห้องจ่ายอุปกรณ์ปลอดเชื้อ",
+    "internal_phone": "9404",
+    "external_phone": "",
+    "sort_order": 101
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 3",
+    "department": "รับเครื่องมือปนเปื้อน",
+    "internal_phone": "9413",
+    "external_phone": "",
+    "sort_order": 102
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 3",
+    "department": "ห้องแพ็คเครื่องมือ",
+    "internal_phone": "9409 . 9410",
+    "external_phone": "",
+    "sort_order": 103
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 3",
+    "department": "ห้องหัวหน้า (พี่จิ๊ก)",
+    "internal_phone": "9412",
+    "external_phone": "",
+    "sort_order": 104
+  },
+  {
+    "building": "อาคารสนับสนุน 5 ชั้น",
+    "floor": "ชั้น 5",
+    "department": "โภชนาการ",
+    "internal_phone": "9419",
+    "external_phone": "",
+    "sort_order": 105
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "ศูนย์รถทั่วไป",
+    "internal_phone": "9597",
+    "external_phone": "",
+    "sort_order": 106
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "การตลาดส่วนภูมิภาค (ตรวจสุขภาพ)",
+    "internal_phone": "9571",
+    "external_phone": "",
+    "sort_order": 107
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "พัสดุ",
+    "internal_phone": "1070 , 1140",
+    "external_phone": "",
+    "sort_order": 108
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "FAX.พัสดุ",
+    "internal_phone": "9570",
+    "external_phone": "",
+    "sort_order": 109
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 1",
+    "department": "คลังเวชภัณฑ์",
+    "internal_phone": "1027 , 1181",
+    "external_phone": "",
+    "sort_order": 110
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 7",
+    "department": "ส่งเสริมสุขภาพและป้องกันโรค",
+    "internal_phone": "9578",
+    "external_phone": "",
+    "sort_order": 111
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 7",
+    "department": "FAX.",
+    "internal_phone": "9542",
+    "external_phone": "",
+    "sort_order": 112
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 7",
+    "department": "สหกรณ์ออมทรัพย์",
+    "internal_phone": "9568",
+    "external_phone": "",
+    "sort_order": 113
+  },
+  {
+    "building": "อาคารจอดรถ 7 ชั้น",
+    "floor": "ชั้น 7",
+    "department": "ตรวจสอบภายใน",
+    "internal_phone": "9543",
+    "external_phone": "",
+    "sort_order": 114
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น G",
+    "department": "เครื่องมือแพทย์",
+    "internal_phone": "5106",
+    "external_phone": "",
+    "sort_order": 115
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น G",
+    "department": "ผู้ป่วยนอกศัลยกรรมและระบบทางเดินปัสสาวะ",
+    "internal_phone": "ผู้ป่วยนอกศัลยกรรมและระบบทางเดินปัสสาวะ",
+    "external_phone": "",
+    "sort_order": 116
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น G",
+    "department": "เคาน์เตอร์ศัลยกรรม",
+    "internal_phone": "1009 , 9538",
+    "external_phone": "",
+    "sort_order": 117
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น G",
+    "department": "เคาท์เตอร์ระบบทางเดินปัสสาวะ",
+    "internal_phone": "1818 , 1149",
+    "external_phone": "",
+    "sort_order": 118
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น G",
+    "department": "ARI",
+    "internal_phone": "9581 , 5013",
+    "external_phone": "",
+    "sort_order": 119
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 1",
+    "department": "ผู้ป่วยในกุมาร",
+    "internal_phone": "9593, 5085",
+    "external_phone": "",
+    "sort_order": 120
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 1",
+    "department": "NICU เด็ก",
+    "internal_phone": "5089",
+    "external_phone": "",
+    "sort_order": 121
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 2",
+    "department": "ชันสูตรโรค (Lab)",
+    "internal_phone": "9530",
+    "external_phone": "",
+    "sort_order": 122
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 2",
+    "department": "จุดรับสิ่งส่งตรวจ (เคาน์เตอร์)",
+    "internal_phone": "9530",
+    "external_phone": "",
+    "sort_order": 123
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 2",
+    "department": "ห้องโลหิตวิทยา",
+    "internal_phone": "9531",
+    "external_phone": "",
+    "sort_order": 124
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 2",
+    "department": "ห้องเคมีคลีนิค",
+    "internal_phone": "1058",
+    "external_phone": "",
+    "sort_order": 125
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 2",
+    "department": "ห้องแบคทีเรีย",
+    "internal_phone": "1049",
+    "external_phone": "",
+    "sort_order": 126
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 2",
+    "department": "ธนาคารเลือด",
+    "internal_phone": "9536",
+    "external_phone": "",
+    "sort_order": 127
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 2",
+    "department": "หัวหน้างาน Lab คุณนิยาภรณ์",
+    "internal_phone": "9525",
+    "external_phone": "",
+    "sort_order": 128
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ผู้ป่วยนอกสูติ-นรีเวชกรรม",
+    "internal_phone": "9586 / 5017",
+    "external_phone": "",
+    "sort_order": 129
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ห้องเจาะเลือด",
+    "internal_phone": "5023",
+    "external_phone": "",
+    "sort_order": 130
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ห้องตรวจเบอร์ 1",
+    "internal_phone": "5027",
+    "external_phone": "",
+    "sort_order": 131
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ห้องตรวจเบอร์ 2",
+    "internal_phone": "5028",
+    "external_phone": "",
+    "sort_order": 132
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ห้องตรวจเบอร์ 3",
+    "internal_phone": "5029",
+    "external_phone": "",
+    "sort_order": 133
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ห้องตรวจเบอร์ 4",
+    "internal_phone": "5016",
+    "external_phone": "",
+    "sort_order": 134
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ห้องตรวจเบอร์ 5",
+    "internal_phone": "5020",
+    "external_phone": "",
+    "sort_order": 135
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ห้องตรวจเบอร์ 6",
+    "internal_phone": "5032",
+    "external_phone": "",
+    "sort_order": 136
+  },
+  {
+    "building": "ตึกคุณละมูล ลือสุขประเสริฐ",
+    "floor": "ชั้น 3",
+    "department": "ห้องให้คำปรึกษา",
+    "internal_phone": "5080",
+    "external_phone": "",
+    "sort_order": 137
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "ศูนย์รถพยาบาล",
+    "internal_phone": "9500",
+    "external_phone": "",
+    "sort_order": 138
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "เคาน์เตอร์เอกซเรย์",
+    "internal_phone": "9005 / 9006 / 9007",
+    "external_phone": "",
+    "sort_order": 139
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "คุณเนาวรัตน์(หัวหน้างาน)",
+    "internal_phone": "9300",
+    "external_phone": "",
+    "sort_order": 140
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "CT Scan",
+    "internal_phone": "9003",
+    "external_phone": "",
+    "sort_order": 141
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "MRI (เอ็กซเรย์) 9005",
+    "internal_phone": "9004",
+    "external_phone": "",
+    "sort_order": 142
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "U/S อัลตร้าซาวด์",
+    "internal_phone": "9303",
+    "external_phone": "",
+    "sort_order": 143
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "หัตถการพยาบาล",
+    "internal_phone": "9304",
+    "external_phone": "",
+    "sort_order": 144
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "เวชระเบียนอุบัติเหตุ-ฉุกเฉิน",
+    "internal_phone": "9001",
+    "external_phone": "",
+    "sort_order": 145
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "ER (ฉุกเฉิน)",
+    "internal_phone": "9009",
+    "external_phone": "",
+    "sort_order": 146
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "Fax",
+    "internal_phone": "9008",
+    "external_phone": "",
+    "sort_order": 147
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "ศูนย์ TEA คุณปัญจพล",
+    "internal_phone": "9101",
+    "external_phone": "",
+    "sort_order": 148
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "ห้องแพทย์ 1",
+    "internal_phone": "9105",
+    "external_phone": "",
+    "sort_order": 149
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "Refer",
+    "internal_phone": "9002",
+    "external_phone": "",
+    "sort_order": 150
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "Admission ER",
+    "internal_phone": "9102",
+    "external_phone": "",
+    "sort_order": 151
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "ประกันชีวิต",
+    "internal_phone": "9028",
+    "external_phone": "",
+    "sort_order": 152
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 1",
+    "department": "fax.",
+    "internal_phone": "9029",
+    "external_phone": "",
+    "sort_order": 153
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "ห้องยา premium",
+    "internal_phone": "9012",
+    "external_phone": "",
+    "sort_order": 154
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "ห้องยาผู้ป่วยใน",
+    "internal_phone": "9013",
+    "external_phone": "",
+    "sort_order": 155
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "สต๊อกห้องยา",
+    "internal_phone": "9118",
+    "external_phone": "",
+    "sort_order": 156
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "fax/ยาห้องพิเศษ",
+    "internal_phone": "9014",
+    "external_phone": "",
+    "sort_order": 157
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "fax./ยาสามัญ",
+    "internal_phone": "9015",
+    "external_phone": "",
+    "sort_order": 158
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "fax./ยากลับบ้าน",
+    "internal_phone": "9119",
+    "external_phone": "",
+    "sort_order": 159
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "ห้องเก็บเงิน",
+    "internal_phone": "9011",
+    "external_phone": "",
+    "sort_order": 160
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "Premiumอายุรกรรม (ฝั่ง A)",
+    "internal_phone": "",
+    "external_phone": "",
+    "sort_order": 161
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "เคาน์เตอร์ 1-3",
+    "internal_phone": "9019 ,9020",
+    "external_phone": "",
+    "sort_order": 162
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "เคาน์เตอร์ 5",
+    "internal_phone": "9022",
+    "external_phone": "",
+    "sort_order": 163
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "ห้องหัตถการ",
+    "internal_phone": "9115",
+    "external_phone": "",
+    "sort_order": 164
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "fax",
+    "internal_phone": "9018",
+    "external_phone": "",
+    "sort_order": 165
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "Premiumอายุรกรรม (ฝั่ง B)",
+    "internal_phone": "",
+    "external_phone": "",
+    "sort_order": 166
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "เคาน์เตอร์ 6",
+    "internal_phone": "9014",
+    "external_phone": "",
+    "sort_order": 167
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "เคาน์เตอร์ 7-8",
+    "internal_phone": "9021",
+    "external_phone": "",
+    "sort_order": 168
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "เคาน์เตอร์ 9",
+    "internal_phone": "9015",
+    "external_phone": "",
+    "sort_order": 169
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "Premium สูตินรีเวช",
+    "internal_phone": "9025 / 9024 , 9025",
+    "external_phone": "",
+    "sort_order": 170
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "Premium หู คอ จมูก",
+    "internal_phone": "9022",
+    "external_phone": "",
+    "sort_order": 171
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "Premium เด็ก",
+    "internal_phone": "9026 , 9128",
+    "external_phone": "",
+    "sort_order": 172
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น2",
+    "department": "ห้องเจาะเลือด",
+    "internal_phone": "9027",
+    "external_phone": "",
+    "sort_order": 173
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 3",
+    "department": "Premium กระดูกและข้อ (ortho)",
+    "internal_phone": "9023",
+    "external_phone": "",
+    "sort_order": 174
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 3",
+    "department": "Premium ศัลยกรรม และระบบทางเดินปัสสาวะ",
+    "internal_phone": "9017",
+    "external_phone": "",
+    "sort_order": 175
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 3",
+    "department": "Premium ทันตกรรม",
+    "internal_phone": "9036 , 9035",
+    "external_phone": "",
+    "sort_order": 176
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 3",
+    "department": "ห้องยา premium",
+    "internal_phone": "9046",
+    "external_phone": "",
+    "sort_order": 177
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "เคาน์เตอร์ห้องผ่าตัด (OR)",
+    "internal_phone": "9050 , 9051, 9049",
+    "external_phone": "",
+    "sort_order": 178
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องผ่าตัด 1",
+    "internal_phone": "9141",
+    "external_phone": "",
+    "sort_order": 179
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องผ่าตัด 2",
+    "internal_phone": "9142",
+    "external_phone": "",
+    "sort_order": 180
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องผ่าตัด 3",
+    "internal_phone": "9143",
+    "external_phone": "",
+    "sort_order": 181
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องผ่าตัด 4",
+    "internal_phone": "9144",
+    "external_phone": "",
+    "sort_order": 182
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องผ่าตัด 5",
+    "internal_phone": "9145",
+    "external_phone": "",
+    "sort_order": 183
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องผ่าตัด 6",
+    "internal_phone": "9146",
+    "external_phone": "",
+    "sort_order": 184
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องพัก (เบรค)",
+    "internal_phone": "9150",
+    "external_phone": "",
+    "sort_order": 185
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ศูนย์ส่องกล้องระบบทางเดินอาหาร",
+    "internal_phone": "9052",
+    "external_phone": "",
+    "sort_order": 186
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "วิสัญญีพยาบาล",
+    "internal_phone": "9053 , 9054",
+    "external_phone": "",
+    "sort_order": 187
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "วิสัญญีแพทย์",
+    "internal_phone": "9055",
+    "external_phone": "",
+    "sort_order": 188
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องผ่าตัดตา",
+    "internal_phone": "9056",
+    "external_phone": "",
+    "sort_order": 189
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 4",
+    "department": "ห้องพักแพทย์ผ่าตัด",
+    "internal_phone": "9140",
+    "external_phone": "",
+    "sort_order": 190
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 5",
+    "department": "หอผู้ป่วยหนัก (ICU 1)",
+    "internal_phone": "9063 , 9064,9065",
+    "external_phone": "",
+    "sort_order": 191
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 5",
+    "department": "Fax.",
+    "internal_phone": "9062",
+    "external_phone": "",
+    "sort_order": 192
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 5",
+    "department": "ห้องพักแพทย์",
+    "internal_phone": "9164",
+    "external_phone": "",
+    "sort_order": 193
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 5",
+    "department": "Premium โรคหัวใจ",
+    "internal_phone": "9057 , 9058",
+    "external_phone": "",
+    "sort_order": 194
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 5",
+    "department": "Cath Lab",
+    "internal_phone": "9059 , 9066",
+    "external_phone": "",
+    "sort_order": 195
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 5",
+    "department": "หอผู้ป่วยวิกฤตโรคระบบหัวใจและหลอดเลือด CCU",
+    "internal_phone": "9070 , 9165, 9162",
+    "external_phone": "",
+    "sort_order": 196
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 5",
+    "department": "Fax",
+    "internal_phone": "9068",
+    "external_phone": "",
+    "sort_order": 197
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 5",
+    "department": "ICU CVT",
+    "internal_phone": "9068",
+    "external_phone": "",
+    "sort_order": 198
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 6",
+    "department": "หอผู้ป่วยพิเศษ 6",
+    "internal_phone": "9060 , 9061",
+    "external_phone": "",
+    "sort_order": 199
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 6",
+    "department": "Fax.",
+    "internal_phone": "9197",
+    "external_phone": "",
+    "sort_order": 200
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 7",
+    "department": "หอผู้ป่วยพิเศษ 7",
+    "internal_phone": "9073 ,9074",
+    "external_phone": "",
+    "sort_order": 201
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 7",
+    "department": "Fax.",
+    "internal_phone": "9228",
+    "external_phone": "",
+    "sort_order": 202
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 7",
+    "department": "ศูนย์วิจัย (งานจริยธรรมวิจัยในมนุษย์, EC)",
+    "internal_phone": "9072",
+    "external_phone": "",
+    "sort_order": 203
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 7",
+    "department": "ศูนย์์วิจัย (งานพัฒนาส่งเสริมการวิจัย)",
+    "internal_phone": "9227",
+    "external_phone": "",
+    "sort_order": 204
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 8",
+    "department": "ห้องคลอด",
+    "internal_phone": "9076 / 9234 , 9235",
+    "external_phone": "",
+    "sort_order": 205
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 8",
+    "department": "หอผู้ป่วยพิเศษสูติ-นรีเวชกรรม",
+    "internal_phone": "9232 , 9233",
+    "external_phone": "",
+    "sort_order": 206
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 8",
+    "department": "fax",
+    "internal_phone": "9075",
+    "external_phone": "",
+    "sort_order": 207
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 9",
+    "department": "เคาน์เตอร์พยาบาล",
+    "internal_phone": "9078",
+    "external_phone": "",
+    "sort_order": 208
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 9",
+    "department": "fax",
+    "internal_phone": "9077",
+    "external_phone": "",
+    "sort_order": 209
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 9",
+    "department": "งานพัฒนาคุณภาพ & งาน IC",
+    "internal_phone": "9287",
+    "external_phone": "",
+    "sort_order": 210
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 10",
+    "department": "ห้องประชุมนายแพทย์วิทิต อรรถเวชกุล",
+    "internal_phone": "",
+    "external_phone": "",
+    "sort_order": 211
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 10",
+    "department": "ห้องประชุมเทพกาญจนา",
+    "internal_phone": "9083",
+    "external_phone": "",
+    "sort_order": 212
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 10",
+    "department": "หอผู้ป่วยโรคหลอดเลือดสมอง (Stroke)",
+    "internal_phone": "9079 , 9080",
+    "external_phone": "",
+    "sort_order": 213
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 10",
+    "department": "ตึกสงฆ์",
+    "internal_phone": "9079 , 9080",
+    "external_phone": "",
+    "sort_order": 214
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 10",
+    "department": "พิเศษชั้น 10",
+    "internal_phone": "9079 , 9080",
+    "external_phone": "",
+    "sort_order": 215
+  },
+  {
+    "building": "อาคารเฉลิมพระเกียรติสมเด็จพระเทพฯ 60 พรรษา",
+    "floor": "ชั้น 10",
+    "department": "fax",
+    "internal_phone": "9081",
+    "external_phone": "",
+    "sort_order": 216
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 1",
+    "department": "เวชระเบียน",
+    "internal_phone": "4000",
+    "external_phone": "",
+    "sort_order": 217
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 1",
+    "department": "เคาน์เตอร์ติดต่อสอบถาม",
+    "internal_phone": "4001",
+    "external_phone": "034-419517",
+    "sort_order": 218
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 2",
+    "department": "เคาน์เตอร์นัด (OPDตา4003)",
+    "internal_phone": "4002 , 4011",
+    "external_phone": "034-484002-3",
+    "sort_order": 219
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 2",
+    "department": "ห้องยา",
+    "internal_phone": "4012",
+    "external_phone": "",
+    "sort_order": 220
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 2",
+    "department": "ห้องเก็บเงินจักษุ",
+    "internal_phone": "4014",
+    "external_phone": "",
+    "sort_order": 221
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 2",
+    "department": "ร้านแว่น รพ.จักษุ ( B-optic)",
+    "internal_phone": "4110",
+    "external_phone": "034-419555 ต่อ 4110",
+    "sort_order": 222
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 2",
+    "department": "การเงิน และบัญชี",
+    "internal_phone": "4029",
+    "external_phone": "034-484028-9",
+    "sort_order": 223
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 2",
+    "department": "ศูนย์วิจัยทางคลินิก (CRC)",
+    "internal_phone": "4027 , 4111",
+    "external_phone": "",
+    "sort_order": 224
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "เคาน์เตอร์นัด",
+    "internal_phone": "4003 , 4013",
+    "external_phone": "034-419085",
+    "sort_order": 225
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "อุปกรณ์พิเศษทางตา",
+    "internal_phone": "4017",
+    "external_phone": "",
+    "sort_order": 226
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "ศูนย์สุขภาพดี",
+    "internal_phone": "4030",
+    "external_phone": "",
+    "sort_order": 227
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "เคาน์เตอร์พยาบาล",
+    "internal_phone": "4030",
+    "external_phone": "034-484030",
+    "sort_order": 228
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "X-Ray check up",
+    "internal_phone": "4031",
+    "external_phone": "",
+    "sort_order": 229
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "ห้องแพทย์ตรวจ 1",
+    "internal_phone": "4121",
+    "external_phone": "",
+    "sort_order": 230
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "ห้องแพทย์ตรวจ 2",
+    "internal_phone": "4122",
+    "external_phone": "",
+    "sort_order": 231
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "ห้องแพทย์ตรวจ 3",
+    "internal_phone": "4123",
+    "external_phone": "",
+    "sort_order": 232
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 3",
+    "department": "ห้องแพทย์ตรวจ 4",
+    "internal_phone": "4124",
+    "external_phone": "",
+    "sort_order": 233
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 4",
+    "department": "เคาน์เตอร์Premium จักษุ",
+    "internal_phone": "4046, 4047, 4048",
+    "external_phone": "",
+    "sort_order": 234
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 4",
+    "department": "ห้องเจาะเลือด",
+    "internal_phone": "4045",
+    "external_phone": "",
+    "sort_order": 235
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 4",
+    "department": "IPD จักษุ",
+    "internal_phone": "4040 ,4041 , 4042",
+    "external_phone": "",
+    "sort_order": 236
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 5",
+    "department": "พิเศษชั้น 5",
+    "internal_phone": "4050, 4051 , 4052",
+    "external_phone": "",
+    "sort_order": 237
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 5",
+    "department": "OPD หู คอ จมูก (ENT)",
+    "internal_phone": "4054",
+    "external_phone": "034-484054",
+    "sort_order": 238
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 5",
+    "department": "คลีนิคตรวจการได้ยิน",
+    "internal_phone": "4056",
+    "external_phone": "034-484056",
+    "sort_order": 239
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 5",
+    "department": "คลีนิคการนอน (นอนกรน)",
+    "internal_phone": "4057",
+    "external_phone": "034-484057",
+    "sort_order": 240
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 6",
+    "department": "เคาน์เตอร์นัด Premium จักษุ",
+    "internal_phone": "4006 , 4015",
+    "external_phone": "034-484006",
+    "sort_order": 241
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 6",
+    "department": "ห้องยาPrmium",
+    "internal_phone": "4066",
+    "external_phone": "",
+    "sort_order": 242
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 6",
+    "department": "ห้องเก็บเงิน",
+    "internal_phone": "4067",
+    "external_phone": "",
+    "sort_order": 243
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 6",
+    "department": "ศูนย์เลสิก",
+    "internal_phone": "4064 , 4065",
+    "external_phone": "034-484064-5",
+    "sort_order": 244
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 6",
+    "department": "@nine by bgh",
+    "internal_phone": "",
+    "external_phone": "034-484050-52",
+    "sort_order": 245
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 7",
+    "department": "Premium ENT หู คอ จมูก",
+    "internal_phone": "4076",
+    "external_phone": "034-484076",
+    "sort_order": 246
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 7",
+    "department": "คลีนิคผิวหนังเลเซอร์",
+    "internal_phone": "4074",
+    "external_phone": "034-484074",
+    "sort_order": 247
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 7",
+    "department": "Premium ภูมิแพ้",
+    "internal_phone": "4077",
+    "external_phone": "",
+    "sort_order": 248
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 8",
+    "department": "ศูนย์ผ่าตัดตา",
+    "internal_phone": "4080 , 4081",
+    "external_phone": "034-484080-1",
+    "sort_order": 249
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 8",
+    "department": "วิสัญญีผ่าตัดตา",
+    "internal_phone": "4082 , 4083",
+    "external_phone": "",
+    "sort_order": 250
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 8",
+    "department": "ห้องผ่าตัด หู คอ จมูก",
+    "internal_phone": "4211 ,4212",
+    "external_phone": "",
+    "sort_order": 251
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "งานสื่อสารองค์กร",
+    "internal_phone": "4091",
+    "external_phone": "",
+    "sort_order": 252
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "ทรัพยากรมนุษย์",
+    "internal_phone": "4095 ,4096, 4228",
+    "external_phone": "",
+    "sort_order": 253
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "ธุรการ",
+    "internal_phone": "4224",
+    "external_phone": "",
+    "sort_order": 254
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "เลขาองค์กรพยาบาล",
+    "internal_phone": "4097",
+    "external_phone": "",
+    "sort_order": 255
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "เลขาองค์กรแพทย์",
+    "internal_phone": "4096",
+    "external_phone": "",
+    "sort_order": 256
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "สำนักเลขา",
+    "internal_phone": "4092 , 4093",
+    "external_phone": "",
+    "sort_order": 257
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "รพ.บ้านแพ้วสาขาพระราม 2",
+    "internal_phone": "034-410800-1",
+    "external_phone": "",
+    "sort_order": 258
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "รพ.บ้านแพ้วสาขาเกษตรพัฒนา",
+    "internal_phone": "034-440861",
+    "external_phone": "",
+    "sort_order": 259
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "แผนไทยสาขาเกษตรพัฒนา",
+    "internal_phone": "062-5578672",
+    "external_phone": "",
+    "sort_order": 260
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "รพ.บ้านแพ้วสาขาหลักห้า",
+    "internal_phone": "034-467966",
+    "external_phone": "",
+    "sort_order": 261
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "รพ.บ้านแพ้วสาขาสาทร",
+    "internal_phone": "02-2864715-6",
+    "external_phone": "",
+    "sort_order": 262
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "แผนกทันตกรรม",
+    "internal_phone": "02-2865291 , 083-9747698",
+    "external_phone": "",
+    "sort_order": 263
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "แผนกผู้ป่วยนอกชั้น 10",
+    "internal_phone": "063-2027627 ต่อ 1014 ,1015,1016",
+    "external_phone": "",
+    "sort_order": 264
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "แผนกจักษุ",
+    "internal_phone": "02-2872267 , 095-7059198",
+    "external_phone": "",
+    "sort_order": 265
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "ศูนย์ราชการแจ้งวัฒนะ",
+    "internal_phone": "02-1427449",
+    "external_phone": "",
+    "sort_order": 266
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "ทันตกรรมศูนย์ราชการแจ้งวัฒนะ",
+    "internal_phone": "02-1427451",
+    "external_phone": "",
+    "sort_order": 267
+  },
+  {
+    "building": "รพ.จักษุบ้านแพ้ว",
+    "floor": "ชั้น 9",
+    "department": "ห้องยาศูนย์ราชการแจ้งวัฒนะ",
+    "internal_phone": "02-1427449",
+    "external_phone": "",
+    "sort_order": 268
+  }
+]
