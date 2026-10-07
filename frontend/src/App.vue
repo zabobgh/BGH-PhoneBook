@@ -87,6 +87,7 @@ watch(
 
 // Search Scope
 const searchScope = ref<'all' | 'building'>('all')
+const hasRequestedAll = ref(false)
 
 function setSearchScope(scope: 'all' | 'building') {
   searchScope.value = scope
@@ -311,6 +312,16 @@ async function load() {
   try {
     const currentQ = q.value.trim()
     const bldgParam = (currentQ && searchScope.value === 'all') ? '' : activeBuilding.value
+
+    // Do not load all data on initial visit when no search query and no specific building selected
+    if (!currentQ && !activeBuilding.value && !hasRequestedAll.value) {
+      entries.value = []
+      if (reqId === loadRequestId) {
+        loading.value = false
+      }
+      return
+    }
+
     const res = await api.list(currentQ, bldgParam)
     if (reqId === loadRequestId) {
       entries.value = res
@@ -329,10 +340,12 @@ async function load() {
 async function selectBuilding(name: string) {
   activeBuilding.value = name
   activeFloor.value = ''
-  if (name && q.value) {
-    searchScope.value = 'building'
-  } else if (!name) {
+  if (!name) {
+    hasRequestedAll.value = true
     searchScope.value = 'all'
+  } else {
+    hasRequestedAll.value = false
+    if (q.value) searchScope.value = 'building'
   }
   await load()
 }
@@ -445,7 +458,7 @@ onMounted(async () => {
   await checkAdminStatus()
   await loadConfiguredLocations()
   await refreshMeta()
-  await load()
+  // Initial visit: only fetch meta (counts for buildings), do NOT download contact entries on start!
 })
 
 onUnmounted(() => {
@@ -613,7 +626,7 @@ onUnmounted(() => {
         <button
           type="button"
           class="mobile-b-pill"
-          :class="{ active: activeBuilding === '' }"
+          :class="{ active: hasRequestedAll && activeBuilding === '' }"
           @click="selectBuilding('')"
         >
           <span class="b-pill-icon">🏢</span>
@@ -650,7 +663,7 @@ onUnmounted(() => {
           <button
             type="button"
             class="nav-item"
-            :class="{ active: activeBuilding === '' }"
+            :class="{ active: hasRequestedAll && activeBuilding === '' }"
             @click="selectBuilding('')"
           >
             <span class="nav-label-wrap">
@@ -739,8 +752,48 @@ onUnmounted(() => {
 
       <!-- Main Panel -->
       <main class="main-content">
-        <!-- Control Bar -->
-        <section class="control-bar" :class="{ 'is-searching': Boolean(q) }">
+        <!-- Building Hub Landing View (Zero-Egress on initial visit: select building first or search) -->
+        <div v-if="!q && !activeBuilding && !hasRequestedAll" class="building-hub-view">
+          <div class="hub-header">
+            <div class="hub-badge">🏢 DIRECTORY BY BUILDING</div>
+            <h2>เลือกอาคารที่ต้องการดูข้อมูล</h2>
+            <p>กรุณาคลิกเลือกอาคารด้านล่างเพื่อดูรายชื่อแผนกและเบอร์โทรศัพท์เฉพาะอาคาร หรือพิมพ์ค้นหาในช่องด้านบน</p>
+          </div>
+
+          <div class="hub-building-grid">
+            <button
+              v-for="(b, bIdx) in meta"
+              :key="b.building"
+              type="button"
+              class="hub-building-card"
+              @click="selectBuilding(b.building)"
+            >
+              <div class="hub-card-icon-badge">🏢</div>
+              <div class="hub-card-content">
+                <span class="hub-card-idx mono">{{ String(bIdx + 1).padStart(2, '0') }}</span>
+                <h3 class="hub-card-title">{{ b.building }}</h3>
+                <span class="hub-card-count">{{ b.count }} หน่วยงาน</span>
+              </div>
+              <div class="hub-card-arrow">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </div>
+            </button>
+          </div>
+
+          <div class="hub-footer-row">
+            <button type="button" class="btn-hub-all" @click="selectBuilding('')">
+              <span class="hub-all-icon">🌐</span>
+              <span>ดูข้อมูลทุกอาคารทั่วทั้งโรงพยาบาล ({{ meta.reduce((s, x) => s + x.count, 0) }} หน่วยงาน)</span>
+            </button>
+          </div>
+        </div>
+
+        <template v-else>
+          <!-- Control Bar -->
+          <section class="control-bar" :class="{ 'is-searching': Boolean(q) }">
           <div class="control-info">
             <h2>
               <span v-if="q">ผลการค้นหา: “{{ q }}”</span>
@@ -1200,6 +1253,7 @@ onUnmounted(() => {
             <button v-if="q" type="button" class="btn btn-outline" style="margin-top: 10px;" @click="clearSearch">ล้างการค้นหา</button>
             <button v-else-if="isAdmin" type="button" class="btn btn-primary" @click="addNew">+ เพิ่มหน่วยงานแรก</button>
           </div>
+        </template>
         </template>
       </main>
     </div>
