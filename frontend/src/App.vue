@@ -170,21 +170,35 @@ function floorSort(a: string, b: string) {
   return val(a) - val(b) || a.localeCompare(b, 'th')
 }
 
+// Flattened list for Table View & Search (with strict query match guard)
+const filteredEntries = computed(() => {
+  let list = entries.value
+  if (activeFloor.value) {
+    list = list.filter((e) => e.floor === activeFloor.value)
+  }
+  const term = q.value.trim().toLowerCase()
+  if (term) {
+    list = list.filter((e) => {
+      return (
+        (e.department && e.department.toLowerCase().includes(term)) ||
+        (e.internal_phone && e.internal_phone.toLowerCase().includes(term)) ||
+        (e.external_phone && e.external_phone.toLowerCase().includes(term)) ||
+        (e.building && e.building.toLowerCase().includes(term)) ||
+        (e.floor && e.floor.toLowerCase().includes(term))
+      )
+    })
+  }
+  return list
+})
+
 // Grouped by floor for Cards View
 const grouped = computed(() => {
   const map = new Map<string, Entry[]>()
-  for (const e of entries.value) {
-    if (activeFloor.value && e.floor !== activeFloor.value) continue
+  for (const e of filteredEntries.value) {
     if (!map.has(e.floor)) map.set(e.floor, [])
     map.get(e.floor)!.push(e)
   }
   return Array.from(map.entries()).sort((a, b) => floorSort(a[0], b[0]))
-})
-
-// Flattened list for Table View
-const filteredEntries = computed(() => {
-  if (!activeFloor.value) return entries.value
-  return entries.value.filter((e) => e.floor === activeFloor.value)
 })
 
 const totalFilteredCount = computed(() => filteredEntries.value.length)
@@ -282,22 +296,33 @@ async function refreshMeta() {
 
 const matchedBuildings = computed(() => {
   const set = new Set<string>()
-  for (const e of entries.value) {
+  for (const e of filteredEntries.value) {
     if (e.building) set.add(e.building)
   }
   return Array.from(set)
 })
 
+let loadRequestId = 0
+
 async function load() {
+  const reqId = ++loadRequestId
   loading.value = true
   error.value = ''
   try {
-    const bldgParam = (q.value && searchScope.value === 'all') ? '' : activeBuilding.value
-    entries.value = await api.list(q.value, bldgParam)
+    const currentQ = q.value.trim()
+    const bldgParam = (currentQ && searchScope.value === 'all') ? '' : activeBuilding.value
+    const res = await api.list(currentQ, bldgParam)
+    if (reqId === loadRequestId) {
+      entries.value = res
+    }
   } catch (e) {
-    error.value = e instanceof Error ? e.message : String(e)
+    if (reqId === loadRequestId) {
+      error.value = e instanceof Error ? e.message : String(e)
+    }
   } finally {
-    loading.value = false
+    if (reqId === loadRequestId) {
+      loading.value = false
+    }
   }
 }
 
