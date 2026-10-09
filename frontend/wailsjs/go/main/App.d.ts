@@ -7,6 +7,8 @@ export function BackupJSON():Promise<Array<main.Entry>>;
 
 export function CreateEntry(arg1:main.Entry):Promise<main.Entry>;
 
+export function DeleteBuilding(arg1:string):Promise<number>;
+
 export function DeleteEntry(arg1:number):Promise<void>;
 
 export function GetMeta():Promise<Array<main.BuildingMeta>>;
@@ -20,5 +22,7 @@ export function ImportBatch(arg1:string,arg2:Array<main.Entry>):Promise<number>;
 export function ListEntries(arg1:string,arg2:string,arg3:string):Promise<Array<main.Entry>>;
 
 export function RelocateEntries(arg1:Array<number>,arg2:string,arg3:string):Promise<number>;
+
+export function RenameBuilding(arg1:string,arg2:string):Promise<number>;
 
 export function UpdateEntry(arg1:main.Entry):Promise<main.Entry>;

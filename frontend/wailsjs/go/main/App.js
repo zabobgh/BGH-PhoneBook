@@ -10,6 +10,10 @@ export function CreateEntry(arg1) {
   return window['go']['main']['App']['CreateEntry'](arg1);
 }
 
+export function DeleteBuilding(arg1) {
+  return window['go']['main']['App']['DeleteBuilding'](arg1);
+}
+
 export function DeleteEntry(arg1) {
   return window['go']['main']['App']['DeleteEntry'](arg1);
 }
@@ -36,6 +40,10 @@ export function ListEntries(arg1, arg2, arg3) {
 
 export function RelocateEntries(arg1, arg2, arg3) {
   return window['go']['main']['App']['RelocateEntries'](arg1, arg2, arg3);
+}
+
+export function RenameBuilding(arg1, arg2) {
+  return window['go']['main']['App']['RenameBuilding'](arg1, arg2);
 }
 
 export function UpdateEntry(arg1) {
