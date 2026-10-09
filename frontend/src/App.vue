@@ -9,6 +9,7 @@ import RelocateModal from './components/RelocateModal.vue'
 import AdminLoginModal from './components/AdminLoginModal.vue'
 import LocationSettingsModal from './components/LocationSettingsModal.vue'
 import { supabaseService, isSupabaseConfigured } from './services/supabase'
+import defaultSeedData from './data/seed.json'
 
 // Admin & Authentication State
 const isAdmin = ref(api.isWails() || localStorage.getItem('bgh-local-admin') === 'true')
@@ -44,10 +45,34 @@ function handleLoginSuccess() {
   showToast('เข้าสู่ระบบผู้ดูแลสำเร็จ ยินดีต้อนรับ!', 'success')
 }
 
-// State
-const entries = ref<Entry[]>([])
-const meta = ref<BuildingMeta[]>([])
-const stats = ref<Stats>({ total_entries: 0, total_buildings: 0, total_floors: 0 })
+// Local Cache Key & Initial Data Loader (0ms Instant Load)
+const CACHE_KEY = 'bgh_entries_cache_v2'
+
+function getInitialEntries(): Entry[] {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY)
+    if (raw) {
+      const parsed = JSON.parse(raw)
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed
+      }
+    }
+  } catch (e) {
+    console.warn('Failed to parse cache', e)
+  }
+  return (defaultSeedData as any[]).map((item, idx) => ({
+    id: item.id || (idx + 1),
+    building: item.building || '',
+    floor: item.floor || '',
+    department: item.department || '',
+    internal_phone: item.internal_phone || '',
+    external_phone: item.external_phone || '',
+    sort_order: item.sort_order || (idx + 1),
+  }))
+}
+
+// Master Entries State (Instant In-Memory Store)
+const entries = ref<Entry[]>(getInitialEntries())
 const activeBuilding = ref('') // '' means all buildings
 const activeFloor = ref('') // '' means all floors
 const q = ref('')
@@ -91,7 +116,6 @@ const hasRequestedAll = ref(false)
 
 function setSearchScope(scope: 'all' | 'building') {
   searchScope.value = scope
-  load()
 }
 
 // Modals
@@ -145,7 +169,39 @@ async function handleLocationsUpdated(oldBuilding?: string, newBuilding?: string
   }
 }
 
-// Computed
+// Computed Meta & Stats directly derived from in-memory entries (0ms instant sync)
+const meta = computed<BuildingMeta[]>(() => {
+  const counts: Record<string, number> = {}
+  for (const e of entries.value) {
+    if (e.building) {
+      counts[e.building] = (counts[e.building] || 0) + 1
+    }
+  }
+  for (const loc of configuredLocations.value) {
+    if (loc.building && counts[loc.building] === undefined) {
+      counts[loc.building] = 0
+    }
+  }
+  return Object.entries(counts).map(([building, count]) => ({
+    building,
+    count,
+  }))
+})
+
+const stats = computed<Stats>(() => {
+  const bldgSet = new Set<string>()
+  const floorSet = new Set<string>()
+  for (const e of entries.value) {
+    if (e.building) bldgSet.add(e.building)
+    if (e.floor) floorSet.add(e.floor)
+  }
+  return {
+    total_entries: entries.value.length,
+    total_buildings: bldgSet.size,
+    total_floors: floorSet.size,
+  }
+})
+
 const buildings = computed(() => {
   const set = new Set(meta.value.map((x) => x.building))
   for (const loc of configuredLocations.value) {
@@ -157,7 +213,9 @@ const buildings = computed(() => {
 const allFloors = computed(() => {
   const set = new Set<string>()
   for (const e of entries.value) {
-    if (e.floor) set.add(e.floor)
+    if (!activeBuilding.value || e.building === activeBuilding.value) {
+      if (e.floor) set.add(e.floor)
+    }
   }
   for (const loc of configuredLocations.value) {
     if (!activeBuilding.value || loc.building === activeBuilding.value) {
@@ -178,24 +236,35 @@ function floorSort(a: string, b: string) {
   return val(a) - val(b) || a.localeCompare(b, 'th')
 }
 
-// Flattened list for Table View & Search (with strict query match guard)
+// Flattened list for Table View & Search (Instant in-memory multi-word search in 0ms)
 const filteredEntries = computed(() => {
   let list = entries.value
+
+  // Scope filter: if an active building is selected
+  // If not searching, OR if user specifically scoped search to 'building'
+  if (activeBuilding.value && (!q.value.trim() || searchScope.value === 'building')) {
+    list = list.filter((e) => e.building === activeBuilding.value)
+  }
+
+  // Floor filter
   if (activeFloor.value) {
     list = list.filter((e) => e.floor === activeFloor.value)
   }
+
   const term = q.value.trim().toLowerCase()
   if (term) {
+    const words = term.split(/\s+/).filter(Boolean)
     list = list.filter((e) => {
-      return (
-        (e.department && e.department.toLowerCase().includes(term)) ||
-        (e.internal_phone && e.internal_phone.toLowerCase().includes(term)) ||
-        (e.external_phone && e.external_phone.toLowerCase().includes(term)) ||
-        (e.building && e.building.toLowerCase().includes(term)) ||
-        (e.floor && e.floor.toLowerCase().includes(term))
-      )
+      const dep = (e.department || '').toLowerCase()
+      const internal = (e.internal_phone || '').toLowerCase()
+      const external = (e.external_phone || '').toLowerCase()
+      const bldg = (e.building || '').toLowerCase()
+      const flr = (e.floor || '').toLowerCase()
+      const combined = `${dep} ${internal} ${external} ${bldg} ${flr}`
+      return words.every((w) => combined.includes(w))
     })
   }
+
   return list
 })
 
@@ -291,15 +360,32 @@ async function copyPhone(phoneText: string, label = '', id?: number) {
   }
 }
 
-// API Loaders
-async function refreshMeta() {
-  try {
-    const [m, s] = await Promise.all([api.meta(), api.stats()])
-    meta.value = m
-    stats.value = s
-  } catch (err) {
-    console.error('Failed to refresh meta/stats:', err)
+// Background SWR Synchronizer
+async function fetchAllEntries(silent = false) {
+  if (!silent && entries.value.length === 0) {
+    loading.value = true
   }
+  error.value = ''
+  try {
+    const data = await api.list('', '', '')
+    if (Array.isArray(data) && data.length > 0) {
+      entries.value = data
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data))
+      } catch {}
+    }
+  } catch (e) {
+    console.error('Failed to fetch entries:', e)
+    if (entries.value.length === 0) {
+      error.value = e instanceof Error ? e.message : String(e)
+    }
+  } finally {
+    loading.value = false
+  }
+}
+
+async function refreshMeta() {
+  await fetchAllEntries(true)
 }
 
 const matchedBuildings = computed(() => {
@@ -310,41 +396,11 @@ const matchedBuildings = computed(() => {
   return Array.from(set)
 })
 
-let loadRequestId = 0
-
 async function load() {
-  const reqId = ++loadRequestId
-  loading.value = true
-  error.value = ''
-  try {
-    const currentQ = q.value.trim()
-    const bldgParam = (currentQ && searchScope.value === 'all') ? '' : activeBuilding.value
-
-    // Do not load all data on initial visit when no search query and no specific building selected
-    if (!currentQ && !activeBuilding.value && !hasRequestedAll.value) {
-      entries.value = []
-      if (reqId === loadRequestId) {
-        loading.value = false
-      }
-      return
-    }
-
-    const res = await api.list(currentQ, bldgParam)
-    if (reqId === loadRequestId) {
-      entries.value = res
-    }
-  } catch (e) {
-    if (reqId === loadRequestId) {
-      error.value = e instanceof Error ? e.message : String(e)
-    }
-  } finally {
-    if (reqId === loadRequestId) {
-      loading.value = false
-    }
-  }
+  await fetchAllEntries(true)
 }
 
-async function selectBuilding(name: string) {
+function selectBuilding(name: string) {
   activeBuilding.value = name
   activeFloor.value = ''
   if (!name) {
@@ -354,23 +410,19 @@ async function selectBuilding(name: string) {
     hasRequestedAll.value = false
     if (q.value) searchScope.value = 'building'
   }
-  await load()
 }
 
 function selectFloor(floor: string) {
   activeFloor.value = activeFloor.value === floor ? '' : floor
 }
 
-// Search debounce
-let timer: number | undefined
+// Search handler: Instant reactive 0ms search
 function onSearchInput() {
-  window.clearTimeout(timer)
-  timer = window.setTimeout(load, 180)
+  // Computed property 'filteredEntries' handles instant real-time filtering in 0ms!
 }
 
 function clearSearch() {
   q.value = ''
-  load()
   searchInputRef.value?.focus()
 }
 
@@ -395,8 +447,7 @@ async function save(e: Entry) {
       showToast(`เพิ่มหน่วยงาน “${e.department}” เรียบร้อย`)
     }
     modalOpen.value = false
-    await refreshMeta()
-    await load()
+    await fetchAllEntries(true)
   } catch (err) {
     showToast(err instanceof Error ? err.message : String(err), 'error')
   }
@@ -407,8 +458,7 @@ async function remove(e: Entry) {
   try {
     await api.remove(e.id)
     showToast(`ลบข้อมูล “${e.department}” เรียบร้อย`)
-    await refreshMeta()
-    await load()
+    await fetchAllEntries(true)
   } catch (err) {
     showToast(err instanceof Error ? err.message : String(err), 'error')
   }
@@ -432,8 +482,7 @@ async function handleImport(payload: ImportPayload) {
     const res = await api.importBatch(payload)
     importModalOpen.value = false
     showToast(`นำเข้าข้อมูลสำเร็จ ${res.imported} รายการ`)
-    await refreshMeta()
-    await load()
+    await fetchAllEntries(true)
   } catch (err) {
     showToast(err instanceof Error ? err.message : String(err), 'error')
   }
@@ -464,8 +513,8 @@ onMounted(async () => {
   window.addEventListener('keydown', onKeyDown)
   await checkAdminStatus()
   await loadConfiguredLocations()
-  await refreshMeta()
-  // Initial visit: only fetch meta (counts for buildings), do NOT download contact entries on start!
+  // Background SWR sync with Supabase / SQLite
+  await fetchAllEntries(entries.value.length > 0)
 })
 
 onUnmounted(() => {
