@@ -253,15 +253,20 @@ const filteredEntries = computed(() => {
 
   const term = q.value.trim().toLowerCase()
   if (term) {
-    const words = term.split(/\s+/).filter(Boolean)
+    const rawWords = term.split(/\s+/).filter(Boolean)
     list = list.filter((e) => {
       const dep = (e.department || '').toLowerCase()
       const internal = (e.internal_phone || '').toLowerCase()
       const external = (e.external_phone || '').toLowerCase()
       const bldg = (e.building || '').toLowerCase()
       const flr = (e.floor || '').toLowerCase()
-      const combined = `${dep} ${internal} ${external} ${bldg} ${flr}`
-      return words.every((w) => combined.includes(w))
+      const cleanInternal = internal.replace(/[\s-]/g, '')
+      const cleanExternal = external.replace(/[\s-]/g, '')
+      const combined = `${dep} ${internal} ${cleanInternal} ${external} ${cleanExternal} ${bldg} ${flr}`
+      return rawWords.every((w) => {
+        const cleanW = w.replace(/[\s-]/g, '')
+        return combined.includes(w) || (cleanW && combined.includes(cleanW))
+      })
     })
   }
 
